@@ -10,7 +10,26 @@
  */
 
 import * as CSL from '@emurgo/cardano-serialization-lib-browser';
-import type { Cip30WalletApi } from './vite-env';
+
+// ─── CIP-30 Types ───────────────────────────────────────────────────────
+
+interface Cip30WalletApi {
+  getBalance(): Promise<string>;
+  getChangeAddress(): Promise<string>;
+  getCollateral(): Promise<string[] | null>;
+  getNetworkId(): Promise<number>;
+  getRewardAddresses(): Promise<string[]>;
+  getUnusedAddresses(): Promise<string[]>;
+  getUsedAddresses(): Promise<string[]>;
+  getUtxos(): Promise<string[] | null>;
+  signTx(tx: string, partialSign?: boolean): Promise<string>;
+  signData(addr: string, payload: string): Promise<{ signature: string; key: string }>;
+  submitTx(tx: string): Promise<string>;
+  experimental: {
+    getCollateral(): Promise<string[] | null>;
+  };
+  getExtensions(): Promise<unknown[]>;
+}
 
 // ─── Constants ──────────────────────────────────────────────────────────
 
