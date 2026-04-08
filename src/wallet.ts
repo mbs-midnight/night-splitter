@@ -10,6 +10,7 @@
  */
 
 import * as CSL from '@emurgo/cardano-serialization-lib-browser';
+import type { Cip30WalletApi } from './vite-env';
 
 // ─── Constants ──────────────────────────────────────────────────────────
 

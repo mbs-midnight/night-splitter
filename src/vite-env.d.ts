@@ -4,7 +4,7 @@
  * CIP-30 Cardano dApp wallet connector types
  */
 
-interface Cip30WalletApi {
+export interface Cip30WalletApi {
   getBalance(): Promise<string>;
   getChangeAddress(): Promise<string>;
   getCollateral(): Promise<string[] | null>;
